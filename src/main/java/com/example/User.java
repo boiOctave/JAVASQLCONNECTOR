@@ -1,6 +1,8 @@
 package com.example;
 
 public class User extends UserLogic{
+  
+    
     int id;
     int height;
     String name;

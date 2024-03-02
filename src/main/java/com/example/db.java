@@ -28,19 +28,26 @@ public class db {
 
     }
 
+    /**
+     * saveNewEntry() -> 👇🏾
+     * 
+     * USE PREPARED STATEMENT TO STORE NEW USER
+     * 
+     */
+
     public void saveNewEntry(User newEntry) {
 
         String query = "INSERT INTO users (height, name, iq, id) VALUES (?,?,?,?)";
 
         try {
             PreparedStatement st = conn.prepareStatement(query);
-            st.setInt( 1, newEntry.getHeight());
+            st.setInt(1, newEntry.getHeight());
             st.setString(2, newEntry.getName());
             st.setString(3, newEntry.getIq());
             st.setString(4, null);
             st.execute();
         } catch (SQLException e) {
-          throw new RuntimeException(e);
+            throw new RuntimeException(e);
         }
     }
 

@@ -20,13 +20,12 @@ public class App {
          */
         // db dataBase = new db();
         // dataBase.connect();
-        
 
-    
         // INSTANCE OF USER CREATED
         User user = new User();
 
-        user.addNewUser("Ayo", 170, "Brilliant");
+        System.out.println("Calling addnew user from main");
+        user.addNewUser("Ayo", 170, "190");
 
         user.returnAllUsers();
 

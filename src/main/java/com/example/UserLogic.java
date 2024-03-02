@@ -13,12 +13,14 @@ public class UserLogic {
      * addNewUser() -> 👇🏾
      * TAKE IN USER INFO
      * STORE INPUT INTO A NEW USER
-     * CALL METHOD TO SAVE AND PASSES A NEW USER 
+     * CALL METHOD TO SAVE AND PASSES A NEW USER
      */
 
     // LETS GOOOOOOOO!!!!!!!!!!!!!!
 
     public void addNewUser(String name, int height, String iq) {
+
+        System.out.println("Calling addnew user from usere logic");
 
         db db1 = new db();
         User newEntry = new User();
@@ -28,7 +30,6 @@ public class UserLogic {
         newEntry.setIq(iq);
 
         db1.saveNewEntry(newEntry);
-
 
     }
 
