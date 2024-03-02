@@ -1,6 +1,9 @@
 package com.example;
 
+import java.sql.*;
+
 public class UserLogic {
+    Connection conn = null;
 
     /**
      * USER METHODS AND FUNCTIONS
@@ -9,22 +12,32 @@ public class UserLogic {
     /**
      * addNewUser() -> 👇🏾
      * TAKE IN USER INFO
-     * STORE THE USER INTO THE DATABASE
-     * CLOSE DATABASE
+     * STORE INPUT INTO A NEW USER
+     * CALL METHOD TO SAVE AND PASSES A NEW USER 
      */
 
-     //LETS GOOOOOOOO!!!!!!!!!!!!!!
+    // LETS GOOOOOOOO!!!!!!!!!!!!!!
 
     public void addNewUser(String name, int height, String iq) {
+
+        db db1 = new db();
+        User newEntry = new User();
+
+        newEntry.setName(name);
+        newEntry.setHeight(height);
+        newEntry.setIq(iq);
+
+        db1.saveNewEntry(newEntry);
 
 
     }
 
     /**
      * returnAllUsers() -> 👇🏾
-     * call db connection
-     * PRINT ALL USERS IN THE TABLE
-     * RETURN USERS
+     * 
+     * CALL ALL INFO FROM TABLE
+     * RETURN A LIST OF USERS
+     * 
      */
 
     public void returnAllUsers() {

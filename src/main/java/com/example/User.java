@@ -1,6 +1,7 @@
 package com.example;
 
 public class User extends UserLogic{
+    int id;
     int height;
     String name;
     String iq;
@@ -33,7 +34,5 @@ public class User extends UserLogic{
     public void setHeight(int height) {
         this.height = height;
     }
-
-
-
+    
 }

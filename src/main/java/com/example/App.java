@@ -12,9 +12,21 @@ package com.example;
  */
 public class App {
     public static void main(String[] args) {
+
+        /*
+         *
+         * CONNECT TO DATABASE
+         *
+         */
+        // db dataBase = new db();
+        // dataBase.connect();
+        
+
+    
         // INSTANCE OF USER CREATED
         User user = new User();
 
+        user.addNewUser("Ayo", 170, "Brilliant");
 
         user.returnAllUsers();
 
@@ -23,8 +35,6 @@ public class App {
         user.findUserByName("Ayo");
 
         user.edit("Ayo");
-
-        user.addNewUser("Ayo", 170, "Brilliant");
 
     }
 }
