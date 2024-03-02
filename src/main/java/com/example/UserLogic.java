@@ -13,8 +13,10 @@ public class UserLogic {
      * CLOSE DATABASE
      */
 
+     //LETS GOOOOOOOO!!!!!!!!!!!!!!
+
     public void addNewUser(String name, int height, String iq) {
-        
+
 
     }
 
