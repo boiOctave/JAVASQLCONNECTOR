@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.*;
+
 /**
  * PURPOSE OF APP
  * STORE NEW USERS
@@ -13,21 +15,22 @@ package com.example;
 public class App {
     public static void main(String[] args) {
 
-        /*
-         *
-         * CONNECT TO DATABASE
-         *
-         */
-        // db dataBase = new db();
-        // dataBase.connect();
-
         // INSTANCE OF USER CREATED
         User user = new User();
 
+        // ADD NEW USER
         System.out.println("Calling addnew user from main");
         user.addNewUser("Ayo", 170, "190");
 
-        user.returnAllUsers();
+        // ACCEPT USERS AND PRINT OUT
+        List<User> users;
+
+        users = user.returnAllUsers();
+        for (User user2 : users) {
+            System.out.println(user2);
+        }
+
+        
 
         user.findUserByHeight(170);
 

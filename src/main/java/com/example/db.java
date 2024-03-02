@@ -2,7 +2,7 @@ package com.example;
 
 import com.example.conn.dbConnect;
 import java.sql.*;
-// import java.util.*;
+import java.util.*;
 
 public class db {
 
@@ -49,6 +49,33 @@ public class db {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public List<User> returnList() {
+        List<User> list = new ArrayList<>();
+        String query = "SELECT  height, name, iq, id from users";
+        PreparedStatement st;
+        try {
+            st = conn.prepareStatement(query);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                User u = new User();
+
+                u.setHeight(rs.getInt(1));
+                u.setName(rs.getString(2));
+                u.setIq(rs.getString(3));
+                u.setId(rs.getInt(4));
+                list.add(u);
+                
+
+            }
+        } catch (SQLException e) {
+
+            throw new RuntimeException(e);
+        }
+        return list;
+        // return null;
+
     }
 
 }

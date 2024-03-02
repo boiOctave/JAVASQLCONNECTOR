@@ -1,9 +1,11 @@
 package com.example;
 
+import java.util.*;
 import java.sql.*;
 
 public class UserLogic {
     Connection conn = null;
+    db db1 = new db();
 
     /**
      * USER METHODS AND FUNCTIONS
@@ -22,7 +24,6 @@ public class UserLogic {
 
         System.out.println("Calling addnew user from usere logic");
 
-        db db1 = new db();
         User newEntry = new User();
 
         newEntry.setName(name);
@@ -41,8 +42,10 @@ public class UserLogic {
      * 
      */
 
-    public void returnAllUsers() {
-
+    public List<User> returnAllUsers() {
+        System.out.println("Calling returnAllusers user from usere logic");
+        List<User> list = db1.returnList();
+        return list;
     }
 
     /**
