@@ -53,9 +53,11 @@ public class UserLogic {
      * TAKE IN HEIGHT
      * SEARCH FOR RHTYMING HEIGHT(USING SQL QUERIES)
      * RETURN RESULT
+     * @return 
      */
 
-    public void findUserByHeight(int i) {
+    public User findUserByHeight(int i) {
+        return null;
 
     }
 

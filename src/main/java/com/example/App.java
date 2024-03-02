@@ -22,17 +22,23 @@ public class App {
         System.out.println("Calling addnew user from main");
         user.addNewUser("Ayo", 170, "190");
 
+
+
         // ACCEPT USERS AND PRINT OUT
         List<User> users;
 
+        /*
+         * Loop through and print each user
+         */
         users = user.returnAllUsers();
         for (User user2 : users) {
             System.out.println(user2);
         }
 
-        
 
-        user.findUserByHeight(170);
+        // FILTER USERS AND PRINT OUT
+        
+        User u = user.findUserByHeight(170);
 
         user.findUserByName("Ayo");
 
