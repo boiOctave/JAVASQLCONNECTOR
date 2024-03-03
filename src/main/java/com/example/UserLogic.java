@@ -39,6 +39,7 @@ public class UserLogic {
      * 
      * CALL ALL INFO FROM TABLE
      * RETURN A LIST OF USERS
+     * @code
      * 
      */
 
@@ -56,8 +57,10 @@ public class UserLogic {
      * @return 
      */
 
-    public User findUserByHeight(int i) {
-        return null;
+    public List<User> findUserByHeight(int i) {
+        int height = i;
+        List<User> u = db1.filter(height);
+        return u;
 
     }
 

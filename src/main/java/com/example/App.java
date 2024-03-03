@@ -38,7 +38,9 @@ public class App {
 
         // FILTER USERS AND PRINT OUT
         
-        User u = user.findUserByHeight(170);
+        List<User> u = user.findUserByHeight(170);
+        System.out.println("Filtered Users By Height");
+        System.out.println(u);
 
         user.findUserByName("Ayo");
 
