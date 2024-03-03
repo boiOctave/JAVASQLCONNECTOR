@@ -100,6 +100,7 @@ public class db {
             PreparedStatement st = conn.prepareStatement(query);
             ResultSet rs = st.executeQuery();
 
+            
             while (rs.next()) {
                 User u = new User();
 
@@ -111,7 +112,7 @@ public class db {
                 if (height == u.getHeight()) {
 
                     list.add(u);
-                    System.out.println(u.getName());
+                    
                 }
 
             }
@@ -153,5 +154,28 @@ public class db {
 
     }
 
+    public User findUser(String name) {
+
+        User u = new User();
+        String query = "SELECT * FROM users WHERE name = ?";
+
+        try {
+
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, name);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                u.setHeight(rs.getInt(1));
+                u.setName(rs.getString(2));
+                u.setIq(rs.getString(3));
+                u.setId(rs.getInt(4));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return u;
+
+    }
 
 }

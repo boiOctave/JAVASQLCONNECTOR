@@ -69,10 +69,12 @@ public class UserLogic {
      * TAKE IN NAME
      * SEARCH FOR RHTYMING HEIGHT(USING SQL QUERIES)
      * RETURN RESULT
+     * @return 
      */
 
-    public void findUserByName(String string) {
-
+    public User findUserByName(String name) {
+        User u = db1.findUser(name);
+        return u;
     }
 
     /**

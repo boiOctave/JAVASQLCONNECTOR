@@ -29,21 +29,29 @@ public class App {
          * Loop through and print each user
          */
         users = user.returnAllUsers();
+        System.out.println("All Users");
         for (User user2 : users) {
             System.out.println(user2);
         }
 
-        // FILTER USERS AND PRINT OUT
+        // FILTER USERS by height AND PRINT OUT
 
         List<User> u = user.findUserByHeight(170);
         System.out.println("Filtered Users By Height");
-        System.out.println(u);
+    for (User user2 : u) {
+        System.out.println(user2);
+    }
 
-        user.findUserByName("Ayo");
+
+        // FILTER USERS  by id AND PRINT OUT
+        User u2 = user.findUserByName("here ololki");
+        System.out.println("Filtered Users By Name");
+        System.out.println(u2);
 
         // EDIT USER AND PRINT OUT
-        User u2 = user.edit(1, "credit union");
-        System.out.println(u2);
+        User u3 = user.edit(1, "credit union");
+        System.out.println("Edited User");
+        System.out.println(u3);
 
     }
 }
