@@ -22,7 +22,7 @@ public class UserLogic {
 
     public void addNewUser(String name, int height, String iq) {
 
-        System.out.println("Calling addnew user from usere logic");
+       
 
         User newEntry = new User();
 
@@ -44,7 +44,7 @@ public class UserLogic {
      */
 
     public List<User> returnAllUsers() {
-        System.out.println("Calling returnAllusers user from usere logic");
+       
         List<User> list = db1.returnList();
         return list;
     }

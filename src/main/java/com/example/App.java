@@ -19,8 +19,8 @@ public class App {
         User user = new User();
 
         // ADD NEW USER
-        System.out.println("Calling addnew user from main");
-        // user.addNewUser("Ayo", 170, "190");
+
+        user.addNewUser("Ayo", 170, "190");
 
         // ACCEPT USERS AND PRINT OUT
         List<User> users;
