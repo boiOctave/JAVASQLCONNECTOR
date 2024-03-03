@@ -9,35 +9,34 @@ public class db {
 
     Statement stmt = null;
     Connection conn = null;
-    
+
     public db() {
         try {
             Class.forName(dbConnect.JDBC_DRIVER);
             // REGISTER DRIVER
-            
+
             // CONNECT TO DATABASE
             conn = DriverManager.getConnection(dbConnect.DB_URL, dbConnect.USER, dbConnect.PASS);
-            
-            
+
         } catch (ClassNotFoundException e) {
-            
+
             e.printStackTrace();
         } catch (SQLException e) {
-            
+
             e.printStackTrace();
         }
-        
+
     }
-    
+
     /**
      * saveNewEntry() -> 👇🏾
      * 
      * USE PREPARED STATEMENT TO STORE NEW USER
      * 
      */
-    
+
     public void saveNewEntry(User newEntry) {
-        
+
         String query = "INSERT INTO users (height, name, iq, id) VALUES (?,?,?,?)";
 
         try {
@@ -93,13 +92,14 @@ public class db {
      * 
      * 
      */
-    public List<User>  filter(int height) {
+    public List<User> filter(int height) {
 
         List<User> list = new ArrayList<>();
         String query = "SELECT  height, name, iq, id from users";
         try {
             PreparedStatement st = conn.prepareStatement(query);
             ResultSet rs = st.executeQuery();
+
             while (rs.next()) {
                 User u = new User();
 
@@ -107,7 +107,6 @@ public class db {
                 u.setName(rs.getString(2));
                 u.setIq(rs.getString(3));
                 u.setId(rs.getInt(4));
-
 
                 if (height == u.getHeight()) {
 
@@ -122,5 +121,37 @@ public class db {
         return list;
 
     }
+
+    public User editUser(int id, String name) {
+        User u = new User();
+        try {
+            // First Find the User and update
+            String query1 = "UPDATE users SET name = ? WHERE id = ? ";
+            PreparedStatement st = conn.prepareStatement(query1);
+            st.setInt(2, id);
+            st.setString(1, name);
+
+            st.execute();
+            // PRINT BACK UPDATED USER
+            String query2 = "SELECT * FROM users WHERE id = ?";
+            PreparedStatement st2 = conn.prepareStatement(query2);
+            st2.setInt(1, id);
+            ResultSet rs = st2.executeQuery();
+
+            while (rs.next()) {
+                u.setHeight(rs.getInt(1));
+                u.setName(rs.getString(2));
+                u.setIq(rs.getString(3));
+                u.setId(rs.getInt(4));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return u;
+
+    }
+
 
 }

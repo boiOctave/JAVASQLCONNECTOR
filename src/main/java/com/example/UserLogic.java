@@ -78,12 +78,14 @@ public class UserLogic {
     /**
      * 
      * edit() -> 👇🏾
-     * TAKE IN INFOS
+     * TAKE IN INFO
      * FIND USER USING ID, CHECK AVAIILABLE FIELDS AND EDIT ONE THAT IS PRESENT
      * RETURN RESULT
      */
 
-    public void edit(String string) {
+    public User edit(int id,String newName) {
+        User u = db1.editUser(id,newName);
+        return u;
 
     }
 }

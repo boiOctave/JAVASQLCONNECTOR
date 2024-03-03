@@ -20,9 +20,7 @@ public class App {
 
         // ADD NEW USER
         System.out.println("Calling addnew user from main");
-        user.addNewUser("Ayo", 170, "190");
-
-
+        // user.addNewUser("Ayo", 170, "190");
 
         // ACCEPT USERS AND PRINT OUT
         List<User> users;
@@ -35,16 +33,17 @@ public class App {
             System.out.println(user2);
         }
 
-
         // FILTER USERS AND PRINT OUT
-        
+
         List<User> u = user.findUserByHeight(170);
         System.out.println("Filtered Users By Height");
         System.out.println(u);
 
         user.findUserByName("Ayo");
 
-        user.edit("Ayo");
+        // EDIT USER AND PRINT OUT
+        User u2 = user.edit(1, "credit union");
+        System.out.println(u2);
 
     }
 }
